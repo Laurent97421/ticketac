@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -8,10 +7,34 @@ a {
 }
 
 .ticketac_logo {
-  width: 50px;
+  width: 60px;
 }
 
-.bg-color {
-  background-color: #5d5d5dc2;
-  backdrop-filter: saturate(180%) blur(13px);
+.navbar {
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  height: 50px;
 }
+
+#navbar_signup_btn {
+  text-align: end;
+  background:#c49659;
+  border-radius:20px;
+  font-size:inherit;
+  color:#fff;
+  box-shadow:none;
+  border:none;
+  text-shadow:none;
+  padding:.5rem .8rem;
+  transition:background-color 0.25s;
+}
+
+.div-bg-img {
+  height: 300px;
+  overflow: hidden;
+}
+
+.nav-link {
+  color:black; 
+}
+
