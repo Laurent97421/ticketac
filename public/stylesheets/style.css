@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+.ticketac_logo {
+  width: 50px;
+}
+
+.bg-color {
+  background-color: #5d5d5dc2;
+  backdrop-filter: saturate(180%) blur(13px);
+}
