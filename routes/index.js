@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var journeyModel = require('../models/journey')
 
 const mongoose = require('mongoose');
 
@@ -10,10 +11,32 @@ var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
 
 
 
+
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('login');
 });
+
+router.get('/home', function(req, res, next) {
+  res.render('home');
+});
+
+
+router.post('/search', async function(req, res, next) {
+
+  var journeyList = journeyModel.find();
+  console.log(journeyList)
+
+  res.render('train_list')
+})
+
+
+
+
+
+
+
 
 
 // Remplissage de la base de donnée, une fois suffit
@@ -68,5 +91,6 @@ router.get('/result', function(req, res, next) {
 
   res.render('index', { title: 'Express' });
 });
+
 
 module.exports = router;
