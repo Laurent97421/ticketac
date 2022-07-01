@@ -1,59 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+    <script src="https://kit.fontawesome.com/61dc9a4f27.js" crossorigin="anonymous"></script>
     <title>Ticketac</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-      crossorigin="anonymous"
-    />
   </head>
   <body>    
+
     <%- include('header'); %>
 
-    <h1>One-way ticket</h1>
-  
-    <form class="form-inline" action="/search" method="POST">
-      <!-- <div class="form-group"> -->
-        <input type="text" name ="departure" class="form-control input-lg" id="exampleInputEmail2" placeholder="From: Paris,Marseille...">
-      <!-- </div> -->
-      <!-- <div class="form-group"> -->
-        <input type="text" name="arrival" class="form-control input-lg" id="exampleInputPassword2" placeholder="To: Lille,Nantes...">
-        <!-- </div> -->
-        <input type="date" id="start" name="trip_start"
-              value="2018-11-20"
-              min="2018-11-20" max="2018-11-24">
-      <!-- <a href="" class="btn btn-danger">Go</a> -->
-      <!-- <input type="submit" class="btn btn-lg btn-default" value="Go"></input> -->
-      <button type="submit" class="btn btn-lg btn-default" >Go</button>
+    <!-- Image de fond -->
+      <div class="div-bg-img">
+        <img class="bg-img" src="/images/bg_img.jpg" alt="image paysage">
+      </div>
 
+      <div class="container-search-bar">
+        <div class="search-bar">
+            <h2>Where are you going ?</h1>
+            <form class="form-inline" action="/search" method="POST">
+            <!-- INPUT departure -->
+            <input type="text" name ="departure" class="input-home" id="" placeholder="From: Paris, Marseille...">
+            <!-- INPUT arrival -->
+            <input type="text" name="arrival" class="input-home" id="" placeholder="To: Lille, Nantes...">
+            <!-- INPUT date -->
+            <input type="date" id="start" class="date input-home" name="trip_start" value="2018-11-20" min="2018-11-20" max="2018-11-24">
 
-    </form>
+            <!-- BUTTON search -->
+            <button type="submit" class="search-home-btn" ><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        </div>
+      </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-      crossorigin="anonymous"
-    ></script>
   </body>
 </html>

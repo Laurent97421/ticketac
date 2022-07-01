@@ -17,16 +17,13 @@
             <p>Ticket available on <%= date %> :</p>
             <ul class="list-group">
               <% for(var i = 0; i < journeyList.length; i++) {%>
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center"
-              >
+              <li class="list-group-item d-flex justify-content-between align-items-center">
                 <%= journeyList[i].departure%> / <%= journeyList[i].arrival%>
                 <div>
                   <span> </span>
-                  <span>
-                    Departure time : <%= journeyList[i].departureTime %>
-                  </span>
+                  <span> Departure time : <%= journeyList[i].departureTime %> </span>
                   <span> </span>
+
                 </div>
                 <div>
                   <%= journeyList[i].price %>€

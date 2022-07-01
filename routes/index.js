@@ -13,7 +13,7 @@ var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('login', { title: 'Express' });
 });
 
 router.get('/home', function(req, res, next) {
@@ -33,7 +33,7 @@ router.post('/search', async function(req, res, next) {
   var date = req.body.trip_start
   date = new Date(date).toLocaleDateString()
 
-  console.log(date)
+  console.log(journeyList)
 
   if(journeyList.length < 1){
     res.render('no_train')
