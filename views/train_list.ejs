@@ -29,7 +29,7 @@
                         <div><%= journeyList[i].arrival%></div>
                         <div><%= journeyList[i].departureTime %></div>
                         <div><%= journeyList[i].price %>€</div>
-                        <div><a href="/basket" id="btn-buy"><button type="submit" class="btn-buy">Buy</button></a></div>
+                        <div><a href="/basket?departure=<%= journeyList[i].departure%>&arrival=<%= journeyList[i].arrival%>&time=<%= journeyList[i].departureTime %>&date=<%= date %>&price=<%= journeyList[i].price %>" id="btn-buy"><button type="submit" class="btn-buy">Buy</button></a></div>
                     </div>
                 </div>
             </li>

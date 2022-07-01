@@ -17,6 +17,7 @@
             </thead>
             <tbody>
                  <%
+                 console.log(journey)
                   let totalCmd = '';
                   for (let i = 0; i<journey.length; i++) { 
                         %> 
@@ -52,7 +53,7 @@
           var time = journey[i].time
           var price = journey[i].price
         }
-        console.log('ducks '+journey[0].departure)
+        // console.log('ducks '+journey[0].departure)
         %>
 
         <div class="row">
