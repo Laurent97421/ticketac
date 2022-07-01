@@ -4,42 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+    <script src="https://kit.fontawesome.com/61dc9a4f27.js" crossorigin="anonymous"></script>
+    <title>Ticketac</title>
   </head>
-  <body>
+
+<body id="trainlist-page">
+
     <%- include('header'); %>
 
-    <!-- GRID -->
-    <div class="container">
-      <div class="row">
-        <div class="col-12 text-center">
-          <div class="col-12">
-            <p>Ticket available on <%= date %> :</p>
-            <ul class="list-group">
-              <% for(var i = 0; i < journeyList.length; i++) {%>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                <%= journeyList[i].departure%> / <%= journeyList[i].arrival%>
-                <div>
-                  <span> </span>
-                  <span> Departure time : <%= journeyList[i].departureTime %> </span>
-                  <span> </span>
+    <p id="ticket-available-text">Ticket available on <%= date %> : </p>
 
+    <div class="train-list-div">
+
+        <% for(var i = 0; i < journeyList.length; i++) {%> 
+        <ul class="ul-train-list">
+            <li class="li-train-list">
+                <div class="train-list-card">
+                    <div class="infotrain-div">
+                        <div><%= journeyList[i].departure%></div>
+                        <div><i class="fa-solid fa-circle-arrow-right"></i></div>
+                        <div><%= journeyList[i].arrival%></div>
+                        <div><%= journeyList[i].departureTime %></div>
+                        <div><%= journeyList[i].price %>€</div>
+                        <div><a href="/basket" id="btn-buy"><button type="submit" class="btn-buy">Buy</button></a></div>
+                    </div>
                 </div>
-                <div>
-                  <%= journeyList[i].price %>€
-                  <a
-                    href="/basket?departure=<%= journeyList[i].departure%>&arrival=<%= journeyList[i].arrival%>&time=<%= journeyList[i].departureTime %>&date=<%= date %>&price=<%= journeyList[i].price %>"
-                    ><button type="submit" class="btn btn-info">
-                      Confirm
-                    </button></a
-                  >
-                </div>
-              </li>
-              <% } %>
-            </ul>
-          </div>
-        </div>
-      </div>
+            </li>
+        </ul>
+        <% } %>
+
     </div>
-  </body>
+
+</body>
 </html>
