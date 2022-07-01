@@ -15,13 +15,15 @@
               </tr>
             </thead>
             <tbody>
+                 <%for (let i =0; i<journey.length; i++) { %> 
               <tr>
                 <th scope="row">1</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td><%=journey[i].departure%> - <%=journey[i].arrival%></td>
+                <td><%=journey[i].date%></td>
+                <td><%=journey[i].time %> </td>
+                <td><%=journey[i].price%>€</td>
               </tr>
+               <% }  %> 
               <tr>
                 <th scope="total">Total</th>
                 <td></td>
@@ -29,6 +31,7 @@
                 <td></td>
                 <td></td>
               </tr>
+            
             </tbody>
           </table>
         </div>
