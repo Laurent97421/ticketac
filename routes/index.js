@@ -33,7 +33,7 @@ router.post('/search', async function(req, res, next) {
   var date = req.body.trip_start
   date = new Date(date).toLocaleDateString()
 
-  // console.log(date)
+  console.log(date)
 
   if(journeyList.length < 1){
     res.render('no_train')
@@ -43,7 +43,7 @@ router.post('/search', async function(req, res, next) {
     for(var i = 0; i < journeyList.length; i++){
       if(departure == journeyList[i].departure && arrival  == journeyList[i].arrival){
         console.log('bibi ')
-        res.render('train_list', { journeyList })
+        res.render('train_list', { journeyList, date })
       }
     }
   }
