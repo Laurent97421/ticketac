@@ -25,10 +25,32 @@ router.get('/home', function(req, res, next) {
 
 router.post('/search', async function(req, res, next) {
 
-  var journeyList = journeyModel.find();
-  console.log(journeyList)
+  // On récupère la liste des trajets correspondant dans la BDD
+  var journeyList = await journeyModel.find({departure: req.body.departure, arrival: req.body.arrival, date: req.body.trip_start});
+  // console.log(journeyList)
 
-  res.render('train_list')
+
+  var departure = req.body.departure
+  var arrival = req.body.arrival
+  var date = req.body.trip_start
+  date = new Date(date).toLocaleDateString()
+
+  // console.log(date)
+
+  if(journeyList.length < 1){
+    res.render('no_train')
+  } else if(journeyList.length == 1){
+    res.render('train_list', { journeyList })
+  } else {
+    for(var i = 0; i < journeyList.length; i++){
+      if(departure == journeyList[i].departure && arrival  == journeyList[i].arrival){
+        console.log('bibi ')
+        res.render('train_list', { journeyList })
+      }
+    }
+  }
+
+
 })
 
 
