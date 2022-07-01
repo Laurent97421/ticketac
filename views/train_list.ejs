@@ -1,41 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <%- include('header'); %>
 
-      <!-- GRID -->
-      <div class="container">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <div class="col-12 ">
-                        <p>Ticket available on <%= date %> : </p>
-                        <ul class="list-group ">
-                                <% for(var i = 0; i < journeyList.length; i++) {%> 
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <%= journeyList[i].departure%> / <%= journeyList[i].arrival%>
-                                        <div>
-                                                <span>   </span> 
-                                                <span> Departure time : <%= journeyList[i].departureTime %>  </span>
-                                                <span>   </span>
-                                        </div>
-                                        <div>
-                                            <%= journeyList[i].price %>€
-                                            <a href="/"><button type="submit" class="btn btn-info">Confirm</button></a>
-                                        </div>
-                                    </li>
-                                <% } %> 
-                        </ul>
-                    </div>
+    <!-- GRID -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <div class="col-12">
+            <p>Ticket available on <%= date %> :</p>
+            <ul class="list-group">
+              <% for(var i = 0; i < journeyList.length; i++) {%>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+              >
+                <%= journeyList[i].departure%> / <%= journeyList[i].arrival%>
+                <div>
+                  <span> </span>
+                  <span>
+                    Departure time : <%= journeyList[i].departureTime %>
+                  </span>
+                  <span> </span>
                 </div>
-            </div>
+                <div>
+                  <%= journeyList[i].price %>€
+                  <a
+                    href="/basket?departure=<%= journeyList[i].departure%>&arrival=<%= journeyList[i].arrival%>&time=<%= journeyList[i].departureTime %>&date=<%= date %>&price=<%= journeyList[i].price %>"
+                    ><button type="submit" class="btn btn-info">
+                      Confirm
+                    </button></a
+                  >
+                </div>
+              </li>
+              <% } %>
+            </ul>
+          </div>
         </div>
-
-
-</body>
+      </div>
+    </div>
+  </body>
 </html>

@@ -121,8 +121,19 @@ router.get('/train ', function (req, res, next) {
 
 
 router.get('/basket', function (req, res, next) {
+  const journey = [];
 
-   res.render('basket', { title: 'ticketac'});
+  journey.push(
+     {
+    departure: req.query.departure,
+    arrival: req.query.arrival,
+    time: req.query.time,
+    date: req.query.date,
+    price: req.query.price
+    })
+  
+  console.log(journey)
+   res.render('basket', { title: 'ticketac', journey});
 })
 
 
