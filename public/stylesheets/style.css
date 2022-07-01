@@ -190,7 +190,8 @@ body#no-train-page, #trainlist-page {
   cursor: pointer;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 
-=======
+}
+ 
 .ul-train-list {
   padding-inline-start: 0;
 }
