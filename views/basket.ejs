@@ -44,21 +44,51 @@
             </tbody>
           </table>
         </div>
+        <% 
+        for(var i = 0; i < journey.length; i++){
+          var date = journey[i].date
+          var departure = journey[i].departure
+          var arrival = journey[i].arrival
+          var time = journey[i].time
+          var price = journey[i].price
+        }
+        console.log('ducks '+journey[0].departure)
+        %>
 
         <div class="row">
           <div class="col-12 text-right">
-            <form action="/create-checkout-session" method="POST">
               <button
                 class="btn btn-outline-info btn-sm btn-checkout"
                 name="button-checkout"
                 type="submit"
+                onclick="openPopup()"
               >
                 Confirm
               </button>
-            </form>
+              <form action="/myjourneys?date=<%= date %>&departure=<%= departure %>&arrival=<%= arrival %>&time=<%= time %>&price=<%= price %>" method="POST">
+                <div class="popup" id="popup">
+                  <img class="text-center" src="/images/tick.png" alt="tick">  
+                  <h2>Thank You !</h2>
+                  <p>Your details has been successfully submitted.</p>
+                  <button type="submit" onclick="closePopup()">OK</button> 
+                  
+                </div>
+              </form>
           </div>
         </div>
       </div>
     </div>
+
+    <script>
+      let popup = document.getElementById('popup');
+      function openPopup(){
+        popup.classList.add("open-popup");
+      }
+
+      function closePopup(){
+        popup.classList.remove("open-popup");
+      }
+
+    </script>
   </body>
 </html>
