@@ -1,6 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var journeyModel = require('../models/journey');
+
+var journeyModel = require('../models/journey')
+
+const mongoose = require('mongoose');
+
+
 
 var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
 var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
@@ -10,6 +15,48 @@ var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
+
+router.get('/home', function(req, res, next) {
+  res.render('home');
+});
+
+
+router.post('/search', async function(req, res, next) {
+
+  // On récupère la liste des trajets correspondant dans la BDD
+  var journeyList = await journeyModel.find({departure: req.body.departure, arrival: req.body.arrival, date: req.body.trip_start});
+  // console.log(journeyList)
+
+
+  var departure = req.body.departure
+  var arrival = req.body.arrival
+  var date = req.body.trip_start
+  date = new Date(date).toLocaleDateString()
+
+  // console.log(date)
+
+  if(journeyList.length < 1){
+    res.render('no_train')
+  } else if(journeyList.length == 1){
+    res.render('train_list', { journeyList })
+  } else {
+    for(var i = 0; i < journeyList.length; i++){
+      if(departure == journeyList[i].departure && arrival  == journeyList[i].arrival){
+        console.log('bibi ')
+        res.render('train_list', { journeyList })
+      }
+    }
+  }
+
+
+})
+
+
+
+
+
+
+
 
 
 // Remplissage de la base de donnée, une fois suffit
@@ -103,8 +150,6 @@ console.log(journey)
   res.render('basket', { title: "ticketact" })
   
 })
-
-
 
 
 
