@@ -74,7 +74,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   position: absolute;
-  z-index: 1000;
+  z-index: 1;
   margin-top: -100px;
   width: 100%;
   justify-items: center;
@@ -115,7 +115,7 @@ h2 {
   margin-left: 2px;
 }
 
-body#no-train-page {
+body#no-train-page, #trainlist-page {
   background-color: #f9f9f9
 }
 
@@ -190,4 +190,45 @@ body#no-train-page {
   cursor: pointer;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 
+=======
+.ul-train-list {
+  padding-inline-start: 0;
+}
+
+.li-train-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: -30px;
+}
+
+.train-list-card {
+  width: 70%;
+  background: white;
+  border-radius: 1.5%;
+  box-shadow: 0px 3px 5px #dfdfdf;
+  margin: 10px;
+}
+
+.infotrain-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.btn-buy {
+  background: #c49659;
+  color: white;
+  border-radius: 14px;
+  box-shadow: 0px 3px 5px #dfdfdf;
+  border: none;
+  padding: 10px;
+}
+
+#ticket-available-text {
+  text-align: center;
+  margin-top: 25px;
 }
