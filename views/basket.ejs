@@ -1,0 +1,52 @@
+ <%- include('header') %>
+  <body>
+    <div>
+      <h1>My tickets</h1>
+      <div class="contrainer-fluid">
+        <div class="row">
+          <table class="table table-dark table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Journey</th>
+                <th scope="col">Date</th>
+                <th scope="col">Departure time</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="total">Total</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="row">
+          <div class="col-12 text-right">
+            <form action="/create-checkout-session" method="POST">
+              <button
+                class="btn btn-outline-info btn-sm btn-checkout"
+                name="button-checkout"
+                type="submit"
+              >
+                Confirm
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

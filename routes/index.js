@@ -116,13 +116,13 @@ router.get('/result', function(req, res, next) {
 router.get('/train ', function (req, res, next) {
 
 
-   res.render('train_list', { title: 'ticketact',  });
+   res.render('train_list', { title: 'ticketact'  });
 })
 
 
-router.get('/basket ', function (req, res, next) {
+router.get('/basket', function (req, res, next) {
 
-   res.render('basket', { title: 'Express' });
+   res.render('basket', { title: 'ticketac'});
 })
 
 
