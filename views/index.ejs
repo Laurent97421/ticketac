@@ -6,6 +6,22 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p>Welcome to <%= title %>
+     <form action="/add-journey" method="POST">
+        <input
+          type="text"
+          name="cityStart"
+          placeholder="ville de départ"
+        />
+        <input
+          type="text"
+          name="cityArrive"
+          placeholder="ville d'arrivée"
+        />
+        <button id="btn" type="submit">Search</button>
+      </form>
+   
+    
+    </p>
   </body>
 </html>
