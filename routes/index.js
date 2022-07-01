@@ -17,7 +17,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/home', function(req, res, next) {
-  res.render('home');
+  if (req.session.user) {
+    console.log(req.session.user)
+    res.render('home');
+  } else {
+    res.redirect('/')
+  }
 });
 
 
@@ -33,7 +38,7 @@ router.post('/search', async function(req, res, next) {
   var date = req.body.trip_start
   date = new Date(date).toLocaleDateString()
 
-  console.log(journeyList)
+  // console.log(journeyList)
 
   if(journeyList.length < 1){
     res.render('no_train')
@@ -42,7 +47,7 @@ router.post('/search', async function(req, res, next) {
   } else {
     for(var i = 0; i < journeyList.length; i++){
       if(departure == journeyList[i].departure && arrival  == journeyList[i].arrival){
-        console.log('bibi ')
+        // console.log('bibi ')
         res.render('train_list', { journeyList, date })
       }
     }
@@ -122,7 +127,8 @@ router.get('/train ', function (req, res, next) {
 
 router.get('/basket', function (req, res, next) {
 
-   res.render('basket', { title: 'ticketac'});
+
+  res.render('basket', { title: 'ticketac'});
 })
 
 
@@ -143,7 +149,7 @@ router.post('/add-journey', function (req, res, next) {
       res.redirect("/");
     }
   }
-console.log(journey)
+// console.log(journey)
 
   
   
@@ -151,6 +157,10 @@ console.log(journey)
   
 })
 
+router.get('/myjourneys', function(req, res, next) {
 
+
+  res.render('myjourneys')
+})
 
 module.exports = router;

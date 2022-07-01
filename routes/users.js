@@ -34,10 +34,10 @@ router.post('/sign-up', async function (req, res, next) {
     var newUserSaved = await newUser.save();
     console.log('DECKS '+newUserSaved)
     // Création de la session pour chaque user
-    // req.session.user = {
-    //   name: newUserSaved.firstname,
-    //   id: newUserSaved._id
-    // }
+    req.session.user = {
+      name: newUserSaved.firstname,
+      id: newUserSaved._id
+    }
     res.redirect('/home')
   } else {
     res.redirect('/')
@@ -57,10 +57,10 @@ router.post('/sign-in', async function (req, res, next) {
   // Le cas échéant on va à la page suivant
   // Sinon on reste sur celle-ci
   if(userExist != null) {
-    // req.session.user = {
-    //   name: userExist.email,
-    //   id: userExist._id
-    // }
+    req.session.user = {
+      name: userExist.email,
+      id: userExist._id
+    }
     res.redirect('/home');
   } else {
     res.redirect('/');
@@ -69,7 +69,7 @@ router.post('/sign-in', async function (req, res, next) {
 
 // Logout
 router.get('/logout', function (req, res, next) {
-  // req.session.user = null;
+  req.session.user = null;
   res.redirect('/');
 })
 
