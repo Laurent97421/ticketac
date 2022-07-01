@@ -2,10 +2,6 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
-}
-
 .ticketac_logo {
   width: 60px;
 }
@@ -29,12 +25,118 @@ a {
   transition:background-color 0.25s;
 }
 
-.div-bg-img {
-  height: 300px;
-  overflow: hidden;
-}
-
 .nav-link {
   color:black; 
 }
 
+.bg-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  max-width: 100%;
+}
+
+.div-bg-img {
+  position: relative;
+}
+
+.sign-block{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: absolute;
+  z-index: 1000;
+  margin-top: -150px;
+  width: 100%;
+}
+
+.left {
+  background-color: white;
+  box-shadow: 0px 3px 5px #dfdfdf;
+  text-align: center;
+  padding: 20px;
+  border-radius: 3%;
+  margin-left: 40%;
+  height: 100%;
+  width: 50%;
+}
+
+.right {
+  background-color: white;
+  box-shadow: 0px 3px 5px #dfdfdf;
+  text-align: center;
+  padding: 20px;
+  border-radius: 3%;
+  margin-right: 40%;
+  width: 50%;
+}
+
+.container-search-bar {
+  display: grid;
+  grid-template-columns: 1fr;
+  position: absolute;
+  z-index: 1000;
+  margin-top: -100px;
+  width: 100%;
+  justify-items: center;
+  align-items: center;
+}
+
+.search-bar {
+  background-color: white;
+  height: 200px;
+  border-radius: 1.5%;
+  box-shadow: 0px 3px 5px #dfdfdf;
+  width: 50%;
+  text-align: center;
+}
+
+form {
+  justify-content: center;
+}
+
+h2 {
+  padding: 25px;
+}
+
+.input-home {
+  border-radius:20px;
+  border: 1px solid #e1e1e1;
+  padding: 10px;
+  margin: 2px;
+}
+
+.search-home-btn {
+  border-radius: 100%;
+  padding: 10px 14px 10px 14px;
+  text-align: end;
+  background:#c49659;
+  border: none;
+  color:#fff;
+  margin-left: 2px;
+}
+
+body#no-train-page {
+  background-color: #f9f9f9
+}
+
+.notrain-div {
+  background: white;
+  margin: auto;
+  margin-top: 50px;
+  width: 50%;
+  border-radius: 1.5%;
+  box-shadow: 0px 3px 5px #dfdfdf;
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.retry-btn {
+  border-radius: 20px;
+  padding: 10px 14px 10px 14px;
+  text-align: end;
+  background:#c49659;
+  border: none;
+  color:#fff;
+  margin-left: 2px;
+}
