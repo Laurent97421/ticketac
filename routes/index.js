@@ -33,7 +33,7 @@ router.post('/search', async function(req, res, next) {
   var date = req.body.trip_start
   date = new Date(date).toLocaleDateString()
 
-  console.log(date)
+  console.log(journeyList)
 
   if(journeyList.length < 1){
     res.render('no_train')
