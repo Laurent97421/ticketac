@@ -127,7 +127,7 @@ router.get('/train ', function (req, res, next) {
 
 router.get('/basket', function (req, res, next) {
 
-  const journey = [];
+  var journey = [];
 
   journey.push(
      {
@@ -138,7 +138,7 @@ router.get('/basket', function (req, res, next) {
     price: req.query.price
     })
   
-  console.log(journey)
+  
    res.render('basket', { title: 'ticketac', journey});
 })
 
@@ -168,7 +168,7 @@ router.post('/add-journey', function (req, res, next) {
   
 })
 
-router.get('/myjourneys', function(req, res, next) {
+router.post('/myjourneys', function(req, res, next) {
 
 
   res.render('myjourneys')
