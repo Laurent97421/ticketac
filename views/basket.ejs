@@ -1,4 +1,5 @@
  <%- include('header') %>
+ 
   <body>
     <div>
       <h1>My tickets</h1>
@@ -15,20 +16,31 @@
               </tr>
             </thead>
             <tbody>
+                 <%
+                  let totalCmd = '';
+                  for (let i = 0; i<journey.length; i++) { 
+                        %> 
               <tr>
                 <th scope="row">1</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td><%=journey[i].departure%> - <%=journey[i].arrival%></td>
+                <td><%=journey[i].date%></td>
+                <td><%=journey[i].time %> </td>
+                <td><%=journey[i].price%>€</td>
               </tr>
+
+               <%
+             totalCmd += journey[i].price 
+            } 
+               %> 
+
               <tr>
                 <th scope="total">Total</th>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
+                <td><%= totalCmd %>€</td>
               </tr>
+             
             </tbody>
           </table>
         </div>
