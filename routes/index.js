@@ -16,6 +16,11 @@ router.get('/', function(req, res, next) {
   res.render('login', { title: 'Express' });
 });
 
+router.get('/logout', function(req, res) {
+  req.session.user = null;
+  res.redirect("/");
+})
+
 router.get('/home', function(req, res, next) {
   if (req.session.user) {
     console.log(req.session.user)
@@ -43,7 +48,7 @@ router.post('/search', async function(req, res, next) {
   if(journeyList.length < 1){
     res.render('no_train')
   } else if(journeyList.length == 1){
-    res.render('train_list', { journeyList })
+    res.render('train_list', { journeyList, date})
   } else {
     for(var i = 0; i < journeyList.length; i++){
       if(departure == journeyList[i].departure && arrival  == journeyList[i].arrival){
