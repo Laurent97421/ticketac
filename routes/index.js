@@ -124,12 +124,12 @@ router.get('/train ', function (req, res, next) {
    res.render('train_list', { title: 'ticketact'  });
 })
 
+var table = []
 
 router.get('/basket', function (req, res, next) {
 
-  var journey = [];
 
-  journey.push(
+  var journey =(
      {
     departure: req.query.departure,
     arrival: req.query.arrival,
@@ -138,8 +138,9 @@ router.get('/basket', function (req, res, next) {
     price: req.query.price
     })
   
+  table.push(journey)
   
-   res.render('basket', { title: 'ticketac', journey});
+   res.render('basket', { title: 'ticketac', table});
 })
 
 
