@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+
 var journeyModel = require('../models/journey')
 
 const mongoose = require('mongoose');
@@ -10,12 +11,9 @@ var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lil
 var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
 
 
-
-
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('login');
+  res.render('index', { title: 'Express' });
 });
 
 router.get('/home', function(req, res, next) {
@@ -110,9 +108,49 @@ router.get('/result', function(req, res, next) {
 
   }
 
-
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'ticketact' });
 });
+
+
+
+router.get('/train ', function (req, res, next) {
+
+
+   res.render('train_list', { title: 'ticketact',  });
+})
+
+
+router.get('/basket ', function (req, res, next) {
+
+   res.render('basket', { title: 'Express' });
+})
+
+
+router.post('/add-journey', function (req, res, next) {
+  
+  var startCity = req.body.cityStart;
+  var finishCity = req.body.cityFinish;
+  var journey = []
+  
+
+
+  for (var i = 0; i < city.length; i++) {
+    if (startCity & finishCity) {
+    
+      
+    
+    } else {
+      res.redirect("/");
+    }
+  }
+console.log(journey)
+
+  
+  
+  res.render('basket', { title: "ticketact" })
+  
+})
+
 
 
 module.exports = router;
