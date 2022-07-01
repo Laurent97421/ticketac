@@ -17,20 +17,19 @@
             </thead>
             <tbody>
                  <%
-                 console.log(journey)
-                  let totalCmd = '';
-                  for (let i = 0; i<journey.length; i++) { 
+                  let totalCmd = 0;
+                  for (let i = 0; i<table.length; i++) { 
                         %> 
               <tr>
-                <th scope="row">1</th>
-                <td><%=journey[i].departure%> - <%=journey[i].arrival%></td>
-                <td><%=journey[i].date%></td>
-                <td><%=journey[i].time %> </td>
-                <td><%=journey[i].price%>€</td>
+                <th scope="row"><%=i%></th>
+                <td><%=table[i].departure%> - <%=table[i].arrival%></td>
+                <td><%=table[i].date%></td>
+                <td><%=table[i].time %> </td>
+                <td><%=table[i].price%>€</td>
               </tr>
 
                <%
-             totalCmd += journey[i].price 
+             totalCmd += Number(table[i].price) 
             } 
                %> 
 
@@ -46,14 +45,13 @@
           </table>
         </div>
         <% 
-        for(var i = 0; i < journey.length; i++){
-          var date = journey[i].date
-          var departure = journey[i].departure
-          var arrival = journey[i].arrival
-          var time = journey[i].time
-          var price = journey[i].price
+        for(var i = 0; i < table.length; i++){
+          var date = table[i].date
+          var departure = table[i].departure
+          var arrival = table[i].arrival
+          var time = table[i].time
+          var price = table[i].price
         }
-        // console.log('ducks '+journey[0].departure)
         %>
 
         <div class="row">
