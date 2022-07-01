@@ -1,49 +1,60 @@
- <%- include('header') %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+    <script src="https://kit.fontawesome.com/61dc9a4f27.js" crossorigin="anonymous"></script>
+    <title>Ticketac</title>
+  </head>
+  <body id="basket-page">   
+
+    <%- include('header') %>
  
-  <body>
-    <div>
-      <h1>My tickets</h1>
-      <div class="contrainer-fluid">
-        <div class="row">
-          <table class="table table-dark table-striped">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Journey</th>
-                <th scope="col">Date</th>
-                <th scope="col">Departure time</th>
-                <th scope="col">Price</th>
-              </tr>
-            </thead>
-            <tbody>
-                 <%
-                  let totalCmd = 0;
-                  for (let i = 0; i<table.length; i++) { 
-                        %> 
-              <tr>
-                <th scope="row"><%=i%></th>
-                <td><%=table[i].departure%> - <%=table[i].arrival%></td>
-                <td><%=table[i].date%></td>
-                <td><%=table[i].time %> </td>
-                <td><%=table[i].price%>€</td>
-              </tr>
+    <h1 class="h1-basket">My order</h1>
 
-               <%
-             totalCmd += Number(table[i].price) 
-            } 
-               %> 
+    <!-- TABLEAU PRODUITS AU PANIER -->
+    <div class="div-table">
 
-              <tr>
-                <th scope="total">Total</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><%= totalCmd %>€</td>
-              </tr>
-             
-            </tbody>
-          </table>
-        </div>
+      <!-- HEADER TABLEAU -->
+      <div></div>
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Journey</th>
+            <th scope="col">Date</th>
+            <th scope="col">Departure time</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+
+        <!-- PRODUITS AU PANIER TABLEAU -->
+        <tbody>
+          <%
+            let totalCmd = 0;
+            for (let i = 0; i<table.length; i++) { 
+          %> 
+          <tr>
+            <th scope="row"><%=i%></th>
+            <td><%=table[i].departure%> - <%=table[i].arrival%></td>
+            <td><%=table[i].date%></td>
+            <td><%=table[i].time %> </td>
+            <td><%=table[i].price%>€</td>
+          </tr>
+          <%
+            totalCmd += Number(table[i].price) 
+          } %> 
+        </tbody>
+      </table>
+
+      <div class="div-total-btn">
+        <div class="total-command"><%= totalCmd %>€</div>
+
+        <!-- BTN CONFIRM + POPUP -->
         <% 
         for(var i = 0; i < table.length; i++){
           var date = table[i].date
@@ -56,14 +67,7 @@
 
         <div class="row">
           <div class="col-12 text-right">
-              <button
-                class="btn btn-outline-info btn-sm btn-checkout"
-                name="button-checkout"
-                type="submit"
-                onclick="openPopup()"
-              >
-                Confirm
-              </button>
+              <button class="btn btn-outline-info btn-sm btn-checkout" id="btn-basket" name="button-checkout" type="submit" onclick="openPopup()">Order</button>
               <form action="/myjourneys?date=<%= date %>&departure=<%= departure %>&arrival=<%= arrival %>&time=<%= time %>&price=<%= price %>" method="POST">
                 <div class="popup" id="popup">
                   <img class="text-center" src="/images/tick.png" alt="tick">  
@@ -76,8 +80,10 @@
           </div>
         </div>
       </div>
+      
     </div>
 
+    <!-- POP UP COMMANDE VALIDEE -->
     <script>
       let popup = document.getElementById('popup');
       function openPopup(){
@@ -87,7 +93,7 @@
       function closePopup(){
         popup.classList.remove("open-popup");
       }
-
     </script>
+
   </body>
 </html>

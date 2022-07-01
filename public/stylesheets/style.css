@@ -115,7 +115,7 @@ h2 {
   margin-left: 2px;
 }
 
-body#no-train-page, #trainlist-page {
+body#no-train-page, #trainlist-page, #basket-page {
   background-color: #f9f9f9
 }
 
@@ -232,4 +232,45 @@ body#no-train-page, #trainlist-page {
 #ticket-available-text {
   text-align: center;
   margin-top: 25px;
+}
+
+.div-table {
+  background: white;
+  width: 70%;
+  border-radius: 1.5%;
+  box-shadow: 0px 3px 5px #dfdfdf;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+tr {
+  background: white;
+}
+
+.div-total-btn {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+}
+
+.total-command {
+  margin-right: 20px;
+  font-size: 20px;
+  color: #b53800;
+  font-weight: bold;
+}
+
+#btn-basket {
+  background: #c49659;
+  color: white;
+  border-radius: 14px;
+  box-shadow: 0px 3px 5px #dfdfdf;
+  border: none;
+}
+
+.h1-basket {
+  text-align: center;
+  margin: 15px;
 }
